@@ -20,6 +20,13 @@ const TodoApp = () => {
             setTasks={setTasks}
           />
         </section>
+        <section>
+          <ul>
+            {tasks.map((task, index) => (
+              <li key={index}>{task}</li>
+            ))}
+          </ul>
+        </section>
       </main>
     </>
   );
