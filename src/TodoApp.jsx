@@ -1,6 +1,6 @@
-import TaskList from "./TaskList";
 import "./TodoApp.css";
 import {useEffect, useState} from "react";
+import {MdDeleteForever} from "react-icons/md";
 
 const TodoApp = () => {
   const [value, setValue] = useState("");
@@ -8,6 +8,8 @@ const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
 
   const [dateTime, setDateTime] = useState("");
+
+  // Functionality to add task on click of add task button
 
   const HandleFromSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ const TodoApp = () => {
     setValue("");
   };
 
-  // Date amd Time
+  // Date amd Time functionality
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,6 +40,14 @@ const TodoApp = () => {
 
     return () => clearInterval(interval);
   });
+
+  // Delete Task functionality on click of delete icon
+
+  const handleDeleteTask = (index) => {
+    const newTasks = [...tasks];
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
+  };
 
   return (
     <>
@@ -61,7 +71,22 @@ const TodoApp = () => {
         <section className="task-container">
           <ul className="task-list">
             {tasks.map((task, i) => {
-              return <TaskList key={i} task={task} />;
+              return (
+                <li className="single-task-container" key={i}>
+                  <div className="checkbox icon-style">
+                    <input type="checkbox" />
+                  </div>
+                  <div>
+                    <span className="task-content">{task}</span>
+                  </div>
+                  <div
+                    className="delete-icon icon-style"
+                    onClick={() => handleDeleteTask(i)}
+                  >
+                    <MdDeleteForever />
+                  </div>
+                </li>
+              );
             })}
           </ul>
         </section>
