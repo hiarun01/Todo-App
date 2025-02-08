@@ -1,11 +1,13 @@
 import TaskList from "./TaskList";
 import "./TodoApp.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const TodoApp = () => {
   const [value, setValue] = useState("");
 
   const [tasks, setTasks] = useState([]);
+
+  const [dateTime, setDateTime] = useState("");
 
   const HandleFromSubmit = (e) => {
     e.preventDefault();
@@ -23,9 +25,28 @@ const TodoApp = () => {
     setValue("");
   };
 
+  // Date amd Time
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      const date = now.toLocaleDateString();
+
+      setDateTime(`${date} - ${time}`);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  });
+
   return (
     <>
       <main className="container">
+        <div className="date-time">
+          <span>
+            <strong>{dateTime}</strong>
+          </span>
+        </div>
         <section className="form-container">
           <form className="task-form" onSubmit={HandleFromSubmit}>
             <input

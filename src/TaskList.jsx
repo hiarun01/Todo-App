@@ -11,7 +11,9 @@ const TaskList = ({task, i}) => {
       <div>
         <span className="task-content">{task}</span>
       </div>
-      <div></div>
+      <div>
+        
+      </div>
     </li>
   );
 };
