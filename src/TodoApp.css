@@ -37,13 +37,13 @@ body{
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    width: 60vw; 
+    width: 50vw; 
     padding: 1rem;
    
 }
 
+
 .task-form input{
-    
     width: 60%;
     padding: 0.5rem 0.5rem;
     font: inherit;
@@ -64,7 +64,7 @@ body{
    font: inherit;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 10px;
     background: transparent;
     color: grey;
@@ -79,7 +79,6 @@ body{
 /* Task List Css */
 
 .task-container{
-   
     /* border: 0.1rem solid grey; */
     border-radius: 15px;
     width: 80vw;
@@ -91,23 +90,56 @@ body{
 
 .task-list{
     list-style: none;
-        
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;        
    
 }
 
-.task-item{
+.single-task-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
-    border-radius: 10px;
-    padding: 1rem;
-    width: 50vw;
-    margin: 1rem 0;
-   background-color: #1c1c1c;
-   color: white;
-   /* border: 0.1rem solid grey; */
+    gap: 1rem;
+   
 }
+
+.checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: 1px solid grey;
+    background-color: #1c1c1c;
+    color: white;
+    
+
+
+   
+    
+}
+
+.single-task-container .task-content{
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    width: 30vw;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #1c1c1c;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    
+
+
+}
+
+
 
 
 

@@ -1,9 +1,17 @@
 import "./TodoApp.css";
 
+import {ImCheckboxUnchecked} from "react-icons/im";
+
 const TaskList = ({task, i}) => {
   return (
-    <li className="task-item" key={i}>
-      <span>{task}</span>
+    <li className="single-task-container" key={i}>
+      <div className="checkbox">
+        <input type="checkbox" />
+      </div>
+      <div>
+        <span className="task-content">{task}</span>
+      </div>
+      <div></div>
     </li>
   );
 };
