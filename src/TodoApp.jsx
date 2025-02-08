@@ -90,6 +90,11 @@ const TodoApp = () => {
             })}
           </ul>
         </section>
+        <section>
+          <button className="clear-all-btn" onClick={() => setTasks([])}>
+            Clear All
+          </button>
+        </section>
       </main>
     </>
   );
