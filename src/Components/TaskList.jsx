@@ -1,21 +1,21 @@
 import "../TodoApp.css";
 import {MdDeleteForever} from "react-icons/md";
 
-const TaskList = ({task, i, HandleDeleteTask}) => {
+const TaskList = ({task, HandleDeleteTask, HandleToggleTask}) => {
   return (
-    <li className="single-task-container" key={i}>
-      <div className="checkbox icon-style">
-        <input type="checkbox" />
+    <li className={`task-item ${task.completed ? "completed" : ""}`}>
+      <div className="checkBox">
+        <input
+          type="checkbox"
+          checked={task.completed}
+          onChange={HandleToggleTask}
+        />
       </div>
-      <div>
-        <span className="task-content">{task}</span>
-      </div>
-      <div
-        className="delete-icon icon-style"
-        onClick={() => HandleDeleteTask(i)}
-      >
+
+      <span className="task-content">{task.text}</span>
+      <span className="delete-icon" onClick={HandleDeleteTask}>
         <MdDeleteForever />
-      </div>
+      </span>
     </li>
   );
 };

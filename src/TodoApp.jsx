@@ -12,14 +12,12 @@ const TodoApp = () => {
       alert("Please add a task");
       return;
     }
-    if (tasks.includes(value)) {
+    if (tasks.some((task) => task.text === value)) {
       alert("Task already exists");
       return;
     }
-    setTasks((prevTask) => [...prevTask, value]);
+    setTasks((prevTasks) => [...prevTasks, {text: value, completed: false}]);
   };
-
-  // Delete Task fun
 
   const HandleDeleteTask = (index) => {
     const newTasks = [...tasks];
@@ -27,7 +25,11 @@ const TodoApp = () => {
     setTasks(newTasks);
   };
 
-  // Delete Task End
+  const HandleToggleTask = (index) => {
+    const newTasks = [...tasks];
+    newTasks[index].completed = !newTasks[index].completed;
+    setTasks(newTasks);
+  };
 
   return (
     <>
@@ -45,7 +47,8 @@ const TodoApp = () => {
                 <TaskList
                   task={task}
                   key={i}
-                  HandleDeleteTask={HandleDeleteTask}
+                  HandleDeleteTask={() => HandleDeleteTask(i)}
+                  HandleToggleTask={() => HandleToggleTask(i)}
                 />
               );
             })}

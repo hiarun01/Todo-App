@@ -8,6 +8,8 @@
 
 
 
+
+
 body{
     font-family: 'Roboto', sans-serif;
     background-color: black;
@@ -96,7 +98,7 @@ body{
    
 }
 
-.single-task-container{
+.task-list li{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,20 +106,35 @@ body{
    
 }
 
-.icon-style{
+.delete-icon{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    padding: 1rem;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    border-radius: 15px;
     border: 1px solid grey;
     background-color: #1c1c1c;
     color: white;   
 }
 
-.single-task-container .task-content{
+.checkBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+    width: 3rem;
+    border: 1px;
+    border: 1px solid grey;    
+    background-color: #1c1c1c;
+    border-radius: 15px;
+}
+
+
+
+li .task-content{
     border: 1px solid grey;
     display: flex;
     align-items: center;
@@ -171,7 +188,26 @@ body{
     color: white;
 }
 
+/* task chekd uncheck css */
 
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .task-item input[type="checkbox"] {
+    cursor: pointer;
+  }
+  
+  .task-item.completed span {
+    text-decoration: line-through;
+    color: gray;
+  }
+
+
+
+/* checkbox  */
 
 
 
