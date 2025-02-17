@@ -5,7 +5,14 @@ import TaskFrom from "./Components/TaskFrom";
 import TaskList from "./Components/TaskList";
 
 const TodoApp = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    // get data form local storgae
+
+    const savedData = localStorage.getItem("todoDatakey");
+    return savedData ? JSON.parse(savedData) : [];
+
+    
+  });
 
   const HandleFromSubmit = (value) => {
     if (!value) {
@@ -18,6 +25,12 @@ const TodoApp = () => {
     }
     setTasks((prevTasks) => [...prevTasks, {text: value, completed: false}]);
   };
+
+  // add Todo Data to LocalStorage..
+
+  localStorage.setItem("todoDatakey", JSON.stringify(tasks));
+
+  // add Todo Data to LocalStorage.
 
   const HandleDeleteTask = (index) => {
     const newTasks = [...tasks];
